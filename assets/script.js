@@ -1,20 +1,19 @@
 
-$('#currentDay').text(moment().format("MMM Do YYYY"));
+$('#currentDay').text(moment().format("MMM Do YYYY h:mm:ss a"));
+var liveHour = moment().hours();
 
 function timeColor () {
-var hour = moment().hour();
+$(".time-block").each(function() {    
+    var timeBHour = parseInt($(this).attr("id"));    
+        if (timeBHour < liveHour) {
+            $(this).addClass('future');
 
-$(".time-block").each(function() {
+        }else if (timeBHour === liveHour) {
+            $(this).addClass('present');
     
-var currentHour = parseInt($(this).attr("id"));    
-    if (currentHour > hour) {
-        $(this).addClass('future');
-
-    }else if (currentHour === hour) {
-        $(this).addClass('present');
-    
-    }else {
-        $(this).addClass('past');
-    }
-}) 
+        }else {
+            $(this).addClass('past');
+        }
+    }) 
 };
+timeColor();
