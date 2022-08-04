@@ -2,11 +2,11 @@
 $('#currentDay').text(moment().format("MMM Do YYYY"));
 
 function timeColor () {
-var hour = $('#currentDay').text(moment().format("MMM Do YYYY"));
+var hour = moment().hour();
 
 $(".time-block").each(function() {
     
-var currentHour = hour;    
+var currentHour = parseInt($(this).attr("id"));    
     if (currentHour > hour) {
         $(this).addClass('future');
 
@@ -18,5 +18,3 @@ var currentHour = hour;
     }
 }) 
 };
-// parseInt($(this).attr("id"))\
-// moment().hour()
