@@ -1,24 +1,36 @@
 
 $('#currentDay').text(moment().format("MMM Do YYYY h:mm:ss a"));
 
+var timeBlockEl = document.querySelector('.container');
+
 
 function timeColor () {
-
 $(".time-block").each(function() {    
-    
-    liveHour = moment().hours();
-    
-    timeBHour = parseInt($(this).attr("id"));    
+    const liveHour = moment().hours();
+    const timeBHour = parseInt($(this).attr('id'));    
         if (timeBHour < liveHour) {
-            $(this).addClass('past').removeClass("present future");
+            $(this).addClass('past');
 
         }else if (timeBHour === liveHour) {
-            $(this).addClass('present').removeClass("past future");
-    
+            $(this).addClass('present');
+
         }else {
-            $(this).addClass('future').removeClass("past present");
+            $(this).addClass('future');
+
         }
     }) 
 };
-timeColor();
 
+
+
+$('.saveBtn').on('click', function() {
+    var inputValue = $(this).siblings('.description').val();
+    var timeValue = $(this).parent('id');
+
+    localStorage.setItem(inputValue, timeValue );
+});
+inputValue = "item1";
+// $('#item1 .description').val(localStorage.getItem('item1'));
+
+
+timeColor();
