@@ -36,14 +36,14 @@ $(".time-block").each(function() {
 };
 
 
-
 $('.saveBtn').on('click', function() {
     var inputValue = $(this).siblings('.description').val();
-    var timeValue = $(this).parent('id');
+    // var timeValue = $(this).parent('id');
 
-    localStorage.setItem(inputValue, timeValue );
+    localStorage.setItem("inputValue", inputValue);
+    // localStorage.setItem("timeValue", timeValue)
 });
-// $('#item1 .description').val(localStorage.getItem('item1'));
 
+$('inputValue .description').val(localStorage.getItem('inputValue'));    
 
 timeColor();
