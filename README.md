@@ -1,1 +1,2 @@
-# work_day_scheduler
+This assignment requires the developer to create a time-block that allows the user to input their daily schedule. If the current time is strictly equal to the time on the block, it will display red. If the current time exceeds the time on the block, it will be grey meaining its past the hour, and anything else will be green for the future. During this process, the developer is being tested on their knowledge of jQuery. It also tests the knowledge of how to set items in local storage.
+
