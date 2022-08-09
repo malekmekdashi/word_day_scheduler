@@ -13,10 +13,7 @@
 // THEN the saved events persist
 
 
-$('#currentDay').text(moment().format("MMM Do YYYY h:mm:ss a"));
-
-var timeBlockEl = document.querySelector('.container');
-
+$('#currentDay').text(moment().format("MMM Do YYYY h:mm a"));
 
 function timeColor () {
 $(".time-block").each(function() {    
@@ -24,57 +21,51 @@ $(".time-block").each(function() {
     const timeBHour = parseInt($(this).attr('id'));    
         if (timeBHour < liveHour) {
             $(this).addClass('past');
+            $(this).removeClass('present future');
 
         }else if (timeBHour === liveHour) {
             $(this).addClass('present');
+            $(this).removeClass('past future');
 
         }else {
             $(this).addClass('future');
-
+            $(this).removeClass('past present');
         }
     }) 
 };
 
 
 $('.saveBtn').on('click', function() {
-    var inputValue1 = $('#inputValue.description1').val();
-    var inputValue2 = $('#inputValue.description2').val();
-    var inputValue3 = $('#inputValue.description3').val();
-    var inputValue4 = $('#inputValue.description4').val();
-    var inputValue5 = $('#inputValue.description5').val();
-    var inputValue6 = $('#inputValue.description6').val();
-    var inputValue7 = $('#inputValue.description7').val();
-    var inputValue8 = $('#inputValue.description8').val();
-    var inputValue9 = $('#inputValue.description9').val();
+    var inputValue1 = $('.description1').val();
+    var inputValue2 = $('.description2').val();
+    var inputValue3 = $('.description3').val();
+    var inputValue4 = $('.description4').val();
+    var inputValue5 = $('.description5').val();
+    var inputValue6 = $('.description6').val();
+    var inputValue7 = $('.description7').val();
+    var inputValue8 = $('.description8').val();
+    var inputValue9 = $('.description9').val();
    
-    
-
-    localStorage.setItem("item1", inputValue1);
-    localStorage.setItem("item2", inputValue2);
-    localStorage.setItem("item3", inputValue3);
-    localStorage.setItem("item4", inputValue4);
-    localStorage.setItem("item5", inputValue5);
-    localStorage.setItem("item6", inputValue6);
-    localStorage.setItem("item7", inputValue7);
-    localStorage.setItem("item8", inputValue8);
-    localStorage.setItem("item9", inputValue9);
+    localStorage.setItem("inputValue", inputValue1);
+    localStorage.setItem("inputValue1", inputValue2);
+    localStorage.setItem("inputValue2", inputValue3);
+    localStorage.setItem("inputValue3", inputValue4);
+    localStorage.setItem("inputValue4", inputValue5);
+    localStorage.setItem("inputValue5", inputValue6);
+    localStorage.setItem("inputValue6", inputValue7);
+    localStorage.setItem("inputValue7", inputValue8);
+    localStorage.setItem("inputValue8", inputValue9);
   
 });
 
-$('#inputValue.description1').val(localStorage.getItem('item1'));    
-$('#inputValue.description2').val(localStorage.getItem('item2'));
-$('#inputValue.description3').val(localStorage.getItem('item3'));
-$('#inputValue.description4').val(localStorage.getItem('item4'));
-$('#inputValue.description5').val(localStorage.getItem('item5'));
-$('#inputValue.description6').val(localStorage.getItem('item6'));
-$('#inputValue.description7').val(localStorage.getItem('item7'));
-$('#inputValue.description8').val(localStorage.getItem('item8'));
-$('#inputValue.description9').val(localStorage.getItem('item9'));
-
-
+$('.description1').val(localStorage.getItem('inputValue'));    
+$('.description2').val(localStorage.getItem('inputValue1'));
+$('.description3').val(localStorage.getItem('inputValue2'));
+$('.description4').val(localStorage.getItem('inputValue3'));
+$('.description5').val(localStorage.getItem('inputValue4'));
+$('.description6').val(localStorage.getItem('inputValue5'));
+$('.description7').val(localStorage.getItem('inputValue6'));
+$('.description8').val(localStorage.getItem('inputValue7'));
+$('.description9').val(localStorage.getItem('inputValue8'));
 
 timeColor();
-
-
-// localStorage.setItem("timeValue", timeValue)
-// 
